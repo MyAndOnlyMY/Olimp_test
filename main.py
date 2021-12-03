@@ -2,35 +2,37 @@ math_dict = dict()
 inf_dict = dict()
 phis_dict = dict()
 
-# Math dict: Second name + Counts
-while True:
-    a = str(input())
-    if a=="":
-        break
-    math_list = list(map(str, a.split()))
-    math_dict[math_list[0]] = math_list[2]
+name_math_dict = dict()
+name_inf_dict = dict()
+name_phis_dict = dict()
 
-# Inf dict: Second name + Counts
-while True:
-    a = str(input())
-    if a=="":
-        break
-    inf_list = list(map(str, a.split()))
-    inf_dict[inf_list[0]] = inf_list[2]
+def all_list_maker(n):
+    for i in n.keys():
+        all_list.append(i)
+    return
 
-# Phis dict: Second name + Counts
-while True:
-    a = str(input())
-    if a=="":
-        break
-    phis_list = list(map(str, a.split()))
-    phis_dict[phis_list[0]] = phis_list[2]
+def dict_maker(n):
+    _dict = dict()
+    _name_dict = dict()
+    _str = input()
+    while _str!="":
+        _str_ = _str.split()
+        _dict[_str_[0]] = int(_str_[2])
+        _name_dict[_str_[0]] = _str_[1]
+        _str = input()
+        return _dict
 
-all_list = ()
 
-for i in math_dict:
-    for j in inf_dict:
-        if math_dict[i] == inf_dict[j]:
-            all_list += i
+math_dict = dict_maker()
+inf_dict = dict_maker()
+phis_dict = dict_maker()
 
-print(all_list)
+all_list = list()
+
+all_list_maker(math_dict)
+all_list_maker(inf_dict)
+all_list_maker(phis_dict)
+
+num_people = len(set(all_list))
+
+print(f"Количество человек: {num_people}")
