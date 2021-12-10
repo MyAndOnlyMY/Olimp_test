@@ -34,35 +34,27 @@ def printer_id(n):
         print(f"{i} {n[i]}")
     return
 
-# Math dict: Second name + Counts
-a = str(input())
-count = 1
-while a!="":
-    math_dict[d_h_m(a)[0]] = int(d_h_m(a)[2])
-    math_n_dict[d_h_m(a)[0]] = d_h_m(a)[1]
-    id_m_dict[id_pm(a, count)] = f"{d_h_m(a)[0]} {d_h_m(a)[1]}"
-    count +=1
+# maker dict olimp
+def m_d_o(counts_dict, name_dict, id_dict):
     a = str(input())
+    count = 1
+    while a!="":
+        counts_dict[d_h_m(a)[0]] = int(d_h_m(a)[2])
+        name_dict[d_h_m(a)[0]] = d_h_m(a)[1]
+        id_dict[id_pm(a, count)] = f"{d_h_m(a)[0]} {d_h_m(a)[1]}"
+        count +=1
+        a = str(input())
+    return
+
+
+# Math dict: Second name + Counts
+m_d_o(math_dict, math_n_dict, id_m_dict)
 
 # Inf dict: Second name + Counts
-a = str(input())
-count = 1
-while a!="":
-    inf_dict[d_h_m(a)[0]] = int(d_h_m(a)[2])
-    inf_n_dict[d_h_m(a)[0]] = d_h_m(a)[1]
-    id_i_dict[id_pm(a, count)] = f"{d_h_m(a)[0]} {d_h_m(a)[1]}"
-    count +=1
-    a = str(input())
+m_d_o(inf_dict, inf_n_dict, id_i_dict)
 
 # Phis dict: Second name + Counts
-a = str(input())
-count = 1
-while a!="":
-    phis_dict[d_h_m(a)[0]] = int(d_h_m(a)[2])
-    phis_n_dict[d_h_m(a)[0]] = d_h_m(a)[1]
-    id_p_dict[id_pm(a, count)] = f"{d_h_m(a)[0]} {d_h_m(a)[1]}"
-    count +=1
-    a = str(input())
+m_d_o(phis_dict, phis_n_dict, id_p_dict)
 
 # Count people
 all_list_maker(math_dict)
